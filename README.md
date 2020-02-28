@@ -1,3 +1,10 @@
+## CSS Filters Demo
+
+- [Demo](http://css-filters.clodui.com/)
+
+**Credits:**
+Used CSS filters from [picturepan2/instagram.css](https://github.com/picturepan2/instagram.css)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
