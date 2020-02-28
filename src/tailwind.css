@@ -1,0 +1,63 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.filter-scroller {
+  @apply flex overflow-x-auto absolute bottom-0 left-0 w-screen h-40 bg-gray-800 shadow-md;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 50%;
+  & > * {
+    @apply flex flex-col items-center justify-center flex-none m-2 bg-gray-700;
+    scroll-snap-align: center;
+    width: calc(theme("spacing.24") + theme("spacing.2"));
+  }
+
+  & > .active {
+    @apply bg-gray-500;
+  }
+}
+
+.editor-area {
+  @apply flex justify-center items-center;
+  height: calc(100vh - theme("spacing.40"));
+}
+
+.main-image {
+  @apply max-w-full border-4 border-gray-800 shadow-md;
+  max-height: calc(100vh - theme("spacing.48"));
+}
+
+.shrink-enter {
+  opacity: 0;
+  transform: scale(0);
+
+  &.shrink-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 300ms ease-in, transform 300ms ease-in;
+  }
+}
+
+.shrink-leave {
+  opacity: 1;
+  transform: scale(1);
+  &.shrink-leave-active {
+    opacity: 0.01;
+    transform: scale(0);
+    transition: opacity 100ms ease-out, transform 100ms ease-out;
+  }
+}
+
+.file-uploader {
+  @apply text-transparent h-16 outline-none;
+  &::-webkit-file-upload-button {
+    @apply invisible;
+  }
+
+  &::before {
+    content: "Click to select an image";
+    @apply block text-sm p-2 px-4 text-center rounded-md bg-gray-800 text-gray-200 cursor-pointer;
+  }
+}
